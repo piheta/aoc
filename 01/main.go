@@ -28,7 +28,7 @@ func convertLettersToNumber(line string) string {
 	line = strings.ReplaceAll(line, "seven", "s7n")
 	line = strings.ReplaceAll(line, "eight", "e8t")
 	line = strings.ReplaceAll(line, "nine", "n9e")
-	return line //eightwothree eighttwo2twothree eighttwo2twothree3three eight8eighttwo2twothree3three
+	return line
 }
 
 func main() {
