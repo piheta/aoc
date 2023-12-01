@@ -1,26 +1,44 @@
 package main
 
 import (
-    "bufio"
-    "fmt"
-    "os"
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
 )
 
 func main() {
-    file, err := os.Open("input.txt")
-    if err != nil {
-        fmt.Println("Error opening file", err)
-        return
-    }
-    defer file.Close()
+	file, err := os.Open("input.txt")
+	if err != nil {
+		fmt.Println("Error opening file", err)
+		return
+	}
+	defer file.Close()
 
-    scanner := bufio.NewScanner(file)
-    for scanner.Scan() {
-        line := scanner.Text()
-        fmt.Println(line)
-    }
+	sum := 0
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		line := string(scanner.Text())
 
-    if err := scanner.Err(); err != nil {
-        fmt.Println("Error reading file", err)
-    }
+		numLine := ""
+
+		for i := 0; i < len(line); i++ {
+			if _, err := strconv.Atoi(string(line[i])); err == nil {
+				numLine += string(line[i])
+			}
+		}
+
+		lineSum := string(numLine[0]) + string(numLine[len(numLine)-1])
+		num, err := strconv.ParseInt(lineSum, 10, 64)
+		if err == nil {
+			sum += int(num)
+		}
+
+	}
+
+	fmt.Println(sum)
+
+	if err := scanner.Err(); err != nil {
+		fmt.Println("Error reading file", err)
+	}
 }
