@@ -19,18 +19,16 @@ func buildNumLine(line string) string {
 }
 
 func convertLettersToNumber(line string) string {
-	convertedLine := line
-	convertedLine = strings.ReplaceAll(convertedLine, "one", "one1one")
-	convertedLine = strings.ReplaceAll(convertedLine, "two", "two2two")
-	convertedLine = strings.ReplaceAll(convertedLine, "three", "three3three")
-	convertedLine = strings.ReplaceAll(convertedLine, "four", "four4four")
-	convertedLine = strings.ReplaceAll(convertedLine, "five", "five5five")
-	convertedLine = strings.ReplaceAll(convertedLine, "six", "six6six")
-	convertedLine = strings.ReplaceAll(convertedLine, "seven", "seven7seven")
-	convertedLine = strings.ReplaceAll(convertedLine, "eight", "eight8eight")
-	convertedLine = strings.ReplaceAll(convertedLine, "nine", "nine9nine")
-	fmt.Println(convertedLine)
-	return convertedLine //eightwothree eighttwo2twothree eighttwo2twothree3three eight8eighttwo2twothree3three
+	line = strings.ReplaceAll(line, "one", "o1e")
+	line = strings.ReplaceAll(line, "two", "t2o")
+	line = strings.ReplaceAll(line, "three", "t3e")
+	line = strings.ReplaceAll(line, "four", "f4r")
+	line = strings.ReplaceAll(line, "five", "f5e")
+	line = strings.ReplaceAll(line, "six", "s6x")
+	line = strings.ReplaceAll(line, "seven", "s7n")
+	line = strings.ReplaceAll(line, "eight", "e8t")
+	line = strings.ReplaceAll(line, "nine", "n9e")
+	return line //eightwothree eighttwo2twothree eighttwo2twothree3three eight8eighttwo2twothree3three
 }
 
 func main() {
@@ -54,9 +52,7 @@ func main() {
 		if err == nil {
 			sum += int(num)
 		}
-
 	}
-
 	fmt.Println(sum)
 
 	if err := scanner.Err(); err != nil {
