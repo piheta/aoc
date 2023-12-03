@@ -18,7 +18,7 @@ func buildNumLine(line string) string {
 	return numLine
 }
 
-func convertLettersToNumber(line string) string {
+func convertLettersToNumber(line string) string { //🍝🍝🍝
 	line = strings.ReplaceAll(line, "one", "o1e")
 	line = strings.ReplaceAll(line, "two", "t2o")
 	line = strings.ReplaceAll(line, "three", "t3e")
