@@ -21,15 +21,15 @@ func isLinePossible(line string) bool {
 				num += numleft * 10
 			}
 
-			if string(line[i+2]) == "r" {
+			if line[i+2] == 'r' {
 				r += num
-			} else if string(line[i+2]) == "g" {
+			} else if line[i+2] == 'g' {
 				g += num
-			} else if string(line[i+2]) == "b" {
+			} else if line[i+2] == 'b' {
 				b += num
 			}
 
-		} else if string(line[i]) == ";" && (r <= RED_LIMIT && g <= GREEN_LIMIT && b <= BLUE_LIMIT) {
+		} else if line[i] == ';' && (r <= RED_LIMIT && g <= GREEN_LIMIT && b <= BLUE_LIMIT) {
 			r, g, b = 0, 0, 0
 		}
 	}
@@ -46,11 +46,11 @@ func getLinePower(line string) int {
 				num += numleft * 10
 			}
 
-			if string(line[i+2]) == "r" && num > r_max {
+			if line[i+2] == 'r' && num > r_max {
 				r_max = num
-			} else if string(line[i+2]) == "g" && num > g_max {
+			} else if line[i+2] == 'g' && num > g_max {
 				g_max = num
-			} else if string(line[i+2]) == "b" && num > b_max {
+			} else if line[i+2] == 'b' && num > b_max {
 				b_max = num
 			}
 		}
