@@ -63,7 +63,6 @@ func main() {
     }
 
     fmt.Println(sum)
-
     if err := scanner.Err(); err != nil {
         fmt.Println("Error reading file", err)
     }
