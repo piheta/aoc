@@ -5,17 +5,9 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"slices"
 	"strings"
 )
-
-func implContains[T comparable](s []T, e T) bool {
-	for _, v := range s {
-		if v == e {
-			return true
-		}
-	}
-	return false
-}
 
 func findCardTotal(line string) float64 {
 	cardTotal := 0
@@ -24,14 +16,13 @@ func findCardTotal(line string) float64 {
 	line = strings.ReplaceAll(line, "  ", " ")
 
 	_, nums, _ := strings.Cut(line, ": ")
-
 	numArr := strings.Split(nums, " ")
 	winners := []string{}
 
 	for i := 0; i < len(numArr); i++ {
 		if i < 10 {
 			winners = append(winners, numArr[i])
-		} else if implContains(winners, numArr[i]) {
+		} else if slices.Contains(winners, numArr[i]) {
 			cardTotal++
 		}
 	}
