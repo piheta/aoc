@@ -19,13 +19,12 @@ defmodule FindDiff do
   end
 
   def solve do
-    content =
+    lines =
       case File.read("input.txt") do
         {:ok, content} -> content
         {:error, reason} -> "Error: #{reason}"
       end
-
-    lines = String.split(content, "\n", trim: true)
+      |> String.split("\n", trim: true)
 
     {lArr, rArr} = get_sorted_arrays(lines)
 
